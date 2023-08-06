@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="events_title">События</string>
+    <string name="read_more">Читать дальше</string>
+    <string name="read_less">Скрыть</string>
+</resources>
