@@ -4,7 +4,7 @@ import com.example.data.entity.EventDetailsEntity
 import com.example.domain.entity.DateUiEntity
 import com.example.domain.entity.EventDetailsUiEntity
 
-class MapperEventDetailEntityToUiEntity :
+class MapperEventDetailEntityToUiEntity(val locName: String) :
     Mapper<EventDetailsEntity, EventDetailsUiEntity> {
     override fun map(from: EventDetailsEntity): EventDetailsUiEntity {
         return EventDetailsUiEntity(
@@ -19,7 +19,7 @@ class MapperEventDetailEntityToUiEntity :
                 )
             } ?: emptyList(),
             description = from.description ?: "",
-            location = from.location?.slug ?: "",
+            location = locName,
             categories = from.categories ?: emptyList(),
             price = from.price ?: "",
             isFree = from.isFree ?: false,

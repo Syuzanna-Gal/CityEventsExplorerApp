@@ -1,8 +1,10 @@
 package com.example.cityeventsexplorerapp.ui.event_details
 
 import androidx.lifecycle.viewModelScope
+import com.example.cityeventsexplorerapp.R
 import com.example.cityeventsexplorerapp.base.BaseViewModel
 import com.example.cityeventsexplorerapp.ui.adapter.item.EventDetailStates
+import com.example.cityeventsexplorerapp.util.type_alias.RDrawable
 import com.example.domain.usecase.GetEventDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,17 +25,13 @@ class EventDetailsViewModel @Inject constructor(
     fun getEventDetails(id: Long) {
         getEventDetailsUseCase(id).onEach {
             val list = listOf(
-                EventDetailStates.Slider(it.images),
+                EventDetailStates.Slider(imageList = it.images, title = it.title),
                 EventDetailStates.Description(it.description),
-                EventDetailStates.Info(text = it.publicationDate, image = 0),
-                EventDetailStates.Info(text = it.place.toString(), image = 0),
-                EventDetailStates.Info(text = it.location, image = 0),
-                EventDetailStates.Info(text = it.price, image = 0),
-                EventDetailStates.Info(text = it.siteUrl, image = 0),
-                EventDetailStates.Info(text = it.favoritesCount.toString(), image = 0),
-                EventDetailStates.Info(text = it.isFree.toString(), image = 0),
-                EventDetailStates.ChipGroup(titles = it.categories),
-                EventDetailStates.ChipGroup(titles = it.tags),
+                EventDetailStates.Info(text = it.location, image = R.drawable.ic_location),
+                EventDetailStates.Info(text = it.siteUrl, image =  R.drawable.ic_help_circle),
+                EventDetailStates.Info(text = it.favoritesCount.toString(), image = R.drawable.ic_heart),
+                EventDetailStates.ChipGroup(titles = it.categories, title = "Categories"),
+                EventDetailStates.ChipGroup(titles = it.tags, title = "Tags"),
             )
             _eventDetails.value = list
         }.catch {

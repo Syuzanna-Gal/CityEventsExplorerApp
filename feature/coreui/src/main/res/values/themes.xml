@@ -35,7 +35,13 @@
     <style name="TextStyleMedium16">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/sp_16</item>
-        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:fontFamily">@font/airbnb_cereal_w_bk</item>
+    </style>
+
+    <style name="TextStyleBold16">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:fontFamily">@font/airbnb_cereal_w_xbd</item>
     </style>
 
     <style name="BlueRoundedStyle" parent="Widget.AppCompat.Button">

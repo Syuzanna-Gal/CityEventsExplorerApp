@@ -17,7 +17,11 @@ class EventDetailsFragment : BaseFragment<EventDetailsViewModel>(R.layout.fragme
     private val navArgs by navArgs<EventDetailsFragmentArgs>()
 
     private val eventDetailsAdapter by lazy {
-        EventDetailsAdapter()
+        EventDetailsAdapter(
+            onBackClick = {
+                viewModel.navigateUp()
+            }
+        )
     }
 
     override fun initView() = with(binding) {

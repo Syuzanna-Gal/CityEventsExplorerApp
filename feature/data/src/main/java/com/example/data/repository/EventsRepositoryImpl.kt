@@ -31,7 +31,9 @@ class EventsRepositoryImpl @Inject constructor(private val mainApi: MainApi) :
 
     override fun getEventDetails(id: Long): Flow<EventDetailsUiEntity> = flow {
         val details = mainApi.getEventDetails(id)
-        emit(MapperEventDetailEntityToUiEntity().map(details))
+        val locName = mainApi.getLocationNameInRussian(details.location?.slug)
+            .find { it.slug == details.location?.slug }?.name
+        emit(MapperEventDetailEntityToUiEntity(locName ?: "").map(details))
     }
 
 }

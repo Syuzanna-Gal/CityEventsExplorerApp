@@ -2,21 +2,29 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/dp_16"
+    android:orientation="vertical">
 
     <at.blogc.android.views.ExpandableTextView
         android:id="@+id/tvExpandable"
+        style="@style/TextStyleMedium16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
         android:maxLines="5"
+        android:textColor="@color/metallicSilver"
+        android:textSize="@dimen/sp_14"
         app:animation_duration="500" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMoreOrLess"
+        style="@style/TextStyleMedium16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_8"
         android:drawablePadding="@dimen/dp_4"
         android:gravity="center"
-        android:text="@string/read_more" />
+        android:text="@string/read_more"
+        android:textSize="@dimen/sp_12" />
 </androidx.appcompat.widget.LinearLayoutCompat>

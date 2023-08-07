@@ -22,6 +22,8 @@ abstract class BaseViewModel : ViewModel() {
         viewModelScope.launch { _command.send(command) }
     }
 
+    fun navigateUp() = sendCommand(Command.NavigateUpCommand)
+
     fun emitInfoEvent(event: InfoEvent) {
         viewModelScope.launch { _infoEvent.emit(event) }
     }
